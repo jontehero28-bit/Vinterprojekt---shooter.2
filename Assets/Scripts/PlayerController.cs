@@ -9,6 +9,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] //jag märkte att göra en variabel public gör samma sak som serialize field!
     float Speed;
 
+    [SerializeField]
+    public GameObject BulletPrefab;
+
+    [SerializeField]
+    Transform Gun;    //behöver bara transform för att behöver bara position dvs. inte som objekt.
+
+
       Vector2 _input;
     void Start()
     {
@@ -24,6 +31,16 @@ public class PlayerController : MonoBehaviour
 
         _input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); //Tar kontrollerna
         _rigidbody.velocity = _input.normalized * Speed;  //gör så att karaktären rör sig. Med speed.
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))//trycks då körs klassen
+        {
+          Shooting();
+        }
         
+    }
+
+    void Shooting()
+    {
+      Instantiate(BulletPrefab, Gun.position, transform.rotation);//Instantiate spawnar objekten (bulletPrefab) på en specifik position (Gun.position)
     }
 }
