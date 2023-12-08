@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -43,4 +45,23 @@ public class PlayerController : MonoBehaviour
     {
       Instantiate(BulletPrefab, Gun.position, transform.rotation);//Instantiate spawnar objekten (bulletPrefab) på en specifik position (Gun.position)
     }
+
+    public void Death()
+    {
+      Destroy(gameObject);
+      FindObjectOfType<TMP_Text>().enabled = true;
+    }
+
+    private void  OnCollisionEnter2D(Collision2D other)
+    {
+      var enemy = other.collider.GetComponent<ZombieController>();
+        if (other.gameObject.tag == "Enemy") //specifierar att dne ska kollidera just med tag enemy. alltså att other är enemy.
+        {
+            
+            Death(); //game over.
+            
+        }
+    }
+
+
 }

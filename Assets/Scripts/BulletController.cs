@@ -28,6 +28,7 @@ public class BulletController : MonoBehaviour
         {
             enemy.Death();
             Destroy(gameObject); //raderar bullet när den kollideras med något
+            
         }
 
         //if (enemy != null) //när kolliderar med fiende då raderas spel objekt.

@@ -21,12 +21,16 @@ public class ZombieController : MonoBehaviour
 
     void Update()
     {
-        transform.up = (_player.transform.position - transform.position).normalized; // samma sak som transform.up = (LookAtMouse.GetMousePosition2d() - (Vector2)transform.position).normalized;
-         _rigidbody.velocity = transform.up * Zombiespeed;  //samma sak som _rigidbody.velocity = _input.normalized * Speed; så återanvänder kod
-         
+        if (_player != null)//ifall player gör så att enemies fortsätter röra på sig. samt tar bort errors
+        {
+            transform.up = (_player.transform.position - transform.position).normalized; // samma sak som transform.up = (LookAtMouse.GetMousePosition2d() - (Vector2)transform.position).normalized;
+            _rigidbody.velocity = transform.up * Zombiespeed;  //samma sak som _rigidbody.velocity = _input.normalized * Speed; så återanvänder kod
+
+        }
+
     }
 
-    public void Death()
+    public void Death()//ta bort objekten
     {
         Destroy(gameObject);
     }
