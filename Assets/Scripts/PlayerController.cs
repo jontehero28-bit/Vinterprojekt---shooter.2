@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
         _input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); //Tar kontrollerna
         _rigidbody.velocity = _input.normalized * Speed;  //gör så att karaktären rör sig. Med speed.
+        
 
         if (Input.GetKeyDown(KeyCode.Mouse0))//trycks då körs klassen
         {
