@@ -9,10 +9,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     GameObject LevelUpObject;
     LevelUpController LevelUpScript;
+
+    SpawnerController SpawnScript;
+
     Rigidbody2D _rigidbody;
 
     //jag märkte att göra en variabel public gör samma sak som serialize field!
-    public float Speed = 3;
+    public float Speed = 5;
 
     public float currentXP = 0;
     public float requiredXP = 10;
@@ -22,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     public float GunCooldown;
 
-    public float GunCooldownTime = 1;
+    public float GunCooldownTime = 2;
 
 
     [SerializeField]
@@ -93,13 +96,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void NextLevel()
+    public void NextLevel() //levla up spelaren
     {
       currentlevel++;
       currentXP -= requiredXP;
       requiredXP *= 1.4f;
-      LevelUpScript.ShowLevelScreen();
-      
+      LevelUpScript.ShowLevelScreen();//visa level up skärmen
     }
 
 

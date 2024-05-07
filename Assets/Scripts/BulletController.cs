@@ -8,7 +8,7 @@ public class BulletController : MonoBehaviour
 
     ZombieController ZombieScript;
 
-    PlayerController playerScript;
+    PlayerController PlayerScript;
 
 
     [SerializeField]
@@ -17,7 +17,7 @@ public class BulletController : MonoBehaviour
     {
         Bulletrigidbody = GetComponent<Rigidbody2D>();
         Destroy(gameObject, t: 3f); //objekt raderas efter 4 sek. https://discussions.unity.com/t/destroy-object-after-a-delay/35759/5
-        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        PlayerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         
     }
 
@@ -35,13 +35,13 @@ public class BulletController : MonoBehaviour
         {
            
             Destroy(gameObject); //raderar bullet när den kollideras med något
-            enemy.ZombieHealth -= playerScript.PlayerDamage;
+            enemy.ZombieHealth -= PlayerScript.PlayerDamage;
             
 
             if (enemy.ZombieHealth <= 0)
             {
                 enemy.Death();
-                playerScript.currentXP += 10;
+                PlayerScript.currentXP += 10;
             }
             
         }

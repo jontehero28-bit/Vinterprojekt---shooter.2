@@ -8,11 +8,18 @@ using Unity.VisualScripting;
 public class LevelUpController : MonoBehaviour
 {
     PlayerController playerScript;
+
+    Button DamageButton;
+
+    Button FireRateButton;
+
+    Button SpeedButton;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        CreateLevelUpScreen();
         HideLevelScreen();
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
@@ -21,6 +28,19 @@ public class LevelUpController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void CreateLevelUpScreen()
+    {
+        //get buttons clicked.
+        DamageButton = GameObject.FindGameObjectWithTag("DamageButton").GetComponent<Button>();
+        FireRateButton = GameObject.FindGameObjectWithTag("FireRateButton").GetComponent<Button>();
+        SpeedButton = GameObject.FindGameObjectWithTag("SpeedButton").GetComponent<Button>();
+
+        //Set actions
+        DamageButton.onClick.AddListener(DamageIncrease);
+        FireRateButton.onClick.AddListener(FireRateIncrease);
+        SpeedButton.onClick.AddListener(SpeedIncrease);
     }
 
     public void ShowLevelScreen()

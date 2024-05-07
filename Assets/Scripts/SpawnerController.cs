@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpawnerController : MonoBehaviour
 {
     [SerializeField]
-    float SpawningSpeed = 2f;  //hur ofta ska de spawnas
+    public float SpawningSpeed = 2f;  //hur ofta ska de spawnas
 
     [SerializeField]
     public GameObject EnemyPrefab;
@@ -18,7 +18,7 @@ public class SpawnerController : MonoBehaviour
     float LastSpawnTime;
     void Start()
     {
-        SpawningSpeed *= 0.25f;
+        SpawningSpeed *= 0.85f; //speed som fiender spawnas med.
     }
 
     
