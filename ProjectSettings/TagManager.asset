@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - LevelUpScreen
+  - LevelUpMenu
+  - DamageButton
+  - FireRateButton
+  - SpeedButton
   layers:
   - Default
   - TransparentFX

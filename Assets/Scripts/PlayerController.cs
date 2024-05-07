@@ -6,10 +6,24 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-      Rigidbody2D _rigidbody;
+    [SerializeField]
+    GameObject LevelUpObject;
+    LevelUpController LevelUpScript;
+    Rigidbody2D _rigidbody;
 
-    [SerializeField] //jag märkte att göra en variabel public gör samma sak som serialize field!
-    float Speed;
+    //jag märkte att göra en variabel public gör samma sak som serialize field!
+    public float Speed = 3;
+
+    public float currentXP = 0;
+    public float requiredXP = 10;
+    public int currentlevel = 1;
+
+    public float PlayerDamage = 10;
+
+    public float GunCooldown;
+
+    public float GunCooldownTime = 1;
+
 
     [SerializeField]
     public GameObject BulletPrefab;
@@ -22,6 +36,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>(); //vilken typ av komponent man vill ta up
+
+        LevelUpScript = LevelUpObject.GetComponent<LevelUpController>();
     }
 
     
@@ -40,11 +56,24 @@ public class PlayerController : MonoBehaviour
           Shooting();
         }
         
+
+        if (currentXP >= requiredXP) //ifall tillräcklig med xp så level up
+        {
+          NextLevel();
+          
+        }
+        GunCooldown -= Time.deltaTime;
+        
+        
     }
 
-    void Shooting()
+    public void Shooting()
     {
+      if (GunCooldown <= 0)
+      {
       Instantiate(BulletPrefab, Gun.position, transform.rotation);//Instantiate spawnar objekten (bulletPrefab) på en specifik position (Gun.position)
+      GunCooldown = GunCooldownTime;
+      }
     }
 
     public void Death()
@@ -62,6 +91,15 @@ public class PlayerController : MonoBehaviour
             Death(); //game over.
             
         }
+    }
+
+    public void NextLevel()
+    {
+      currentlevel++;
+      currentXP -= requiredXP;
+      requiredXP *= 1.4f;
+      LevelUpScript.ShowLevelScreen();
+      
     }
 
 

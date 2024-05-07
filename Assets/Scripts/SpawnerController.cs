@@ -18,7 +18,7 @@ public class SpawnerController : MonoBehaviour
     float LastSpawnTime;
     void Start()
     {
-        
+        SpawningSpeed *= 0.25f;
     }
 
     
@@ -32,7 +32,7 @@ public class SpawnerController : MonoBehaviour
         {
             Instantiate(EnemyPrefab, RandomSpawnPoint.position, transform.rotation);
             LastSpawnTime = Time.time;
-            SpawningSpeed *= 0.95f; //gångra med 95% så öks svårigheten med varje zombien som kommmer spawnas.
+            //SpawningSpeed *= 0.95f; //gångra med 95% så öks svårigheten med varje zombien som kommmer spawnas.
         }
     }
 }

@@ -12,6 +12,8 @@ public class ZombieController : MonoBehaviour
 
     [SerializeField]
     float Zombiespeed = 5;  //bas hastighet.
+
+    public float ZombieHealth = 30;
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
