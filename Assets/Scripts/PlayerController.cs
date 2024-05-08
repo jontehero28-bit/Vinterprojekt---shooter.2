@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     GameObject LevelUpObject;
+    [SerializeField]
+    GameObject SpawnerObject;
     LevelUpController LevelUpScript;
 
     SpawnerController SpawnScript;
@@ -25,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     public float GunCooldown;
 
-    public float GunCooldownTime = 2;
+    public float GunCooldownTime = 1;
 
 
     [SerializeField]
@@ -41,6 +43,8 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>(); //vilken typ av komponent man vill ta up
 
         LevelUpScript = LevelUpObject.GetComponent<LevelUpController>();
+        SpawnScript = SpawnerObject.GetComponent<SpawnerController>();
+
     }
 
     
@@ -101,6 +105,7 @@ public class PlayerController : MonoBehaviour
       currentlevel++;
       currentXP -= requiredXP;
       requiredXP *= 1.4f;
+      SpawnScript.SpawningSpeed *= 0.95f;
       LevelUpScript.ShowLevelScreen();//visa level up skärmen
     }
 

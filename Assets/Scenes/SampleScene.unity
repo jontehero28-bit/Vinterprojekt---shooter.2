@@ -205,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 55082988}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1225166622}
+        m_TargetAssemblyTypeName: LevelUpController, Assembly-CSharp
+        m_MethodName: FireRateIncrease
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &55082988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,7 +512,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Firerate + ??
+  m_text: Shot Cooldown - 1s
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1072,7 +1084,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8c7b82dab22cb458692785e5e29848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelUpObject: {fileID: 1225166618}
   Speed: 5
+  currentXP: 0
+  requiredXP: 10
+  currentlevel: 1
+  PlayerDamage: 10
+  GunCooldown: 0
+  GunCooldownTime: 1
   BulletPrefab: {fileID: 2328232480600905611, guid: 0fee71bb5c887844c8010923266b78f7, type: 3}
   Gun: {fileID: 1124831793}
 --- !u!1 &619394800
@@ -1829,7 +1848,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1282257032}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1225166622}
+        m_TargetAssemblyTypeName: LevelUpController, Assembly-CSharp
+        m_MethodName: SpeedIncrease
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1282257032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2130,7 +2161,7 @@ RectTransform:
   m_GameObject: {fileID: 1455896471}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.1881125, y: 2.1881125, z: 2.1881125}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1225166619}
